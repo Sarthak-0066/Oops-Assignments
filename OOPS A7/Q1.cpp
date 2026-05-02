@@ -1,21 +1,42 @@
 #include <iostream>
 using namespace std;
 
-template <class T>
-void swapValues(T &a, T &b) {
-    T temp = a;
-    a = b;
-    b = temp;
-}
-int main() {
-    int x = 5, y = 10;
-    swapValues(x, y);
-    cout << "After swap: " <<x <<" ";
-       cout<<y << endl;
+class Polygon {
+protected:
+    int width, height;
 
-    float a = 1.5, b = 2.5;
-    swapValues(a, b);
-    cout << "After swap: " << a << " " << b;
+public:
+    void set_value(int w, int h) {
+        width = w;
+        height = h;
+    }
+    virtual int calculate_area() = 0; 
+};
+class rect : public Polygon {
+public:
+    int calculate_area() {
+        return width * height;
+    }
+};
+
+class triangle : public Polygon {
+public:
+    int calculate_area() {
+        return (width * height) / 2;
+    }
+};
+int main() {
+    Polygon *p;
+
+    rect r;
+    triangle t;
+    p = &r;
+    p->set_value(4, 5);
+    cout << "rect Area: " << p->calculate_area() << endl;
+
+    p = &t;
+    p->set_value(4, 5);
+    cout << "triangle Area: " << p->calculate_area() << endl;
 
     return 0;
 }
