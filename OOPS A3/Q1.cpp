@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 class Demo {
     int x;
 public:
@@ -10,6 +11,7 @@ public:
         cout << "Value: " << x << endl;
     }
 };
+
 int main() {
     Demo d;
 
@@ -18,5 +20,6 @@ int main() {
     Demo *ptr = &d;
     ptr->set(20);
     ptr->display();
+
     return 0;
 }
