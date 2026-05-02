@@ -7,6 +7,7 @@ public:
         cout << "This is Base class\n";
     }
 };
+
 class Derived : public Base {
 public:
     void showDerived() {
